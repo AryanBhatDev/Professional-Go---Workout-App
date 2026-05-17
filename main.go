@@ -24,6 +24,8 @@ func main() {
 		panic(err)
 	}
 
+	defer app.DB.Close()
+
 	r := routes.HandleRoutes(app)
 
 	server := &http.Server{
